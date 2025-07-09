@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAWREI RANKS EDUCATION CENTER AT NAKAWUKA | Premium Job Portal</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a0ca3;
+            --secondary: #4cc9f0;
+            --accent: #f72585;
+            --success: #4ade80;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --light-gray: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-gray);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo i {
+            font-size: 2.5rem;
+            margin-right: 0.8rem;
+            color: var(--secondary);
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                        url('images/oooooooooooooooo.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Navigation */
+        .nav-container {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            position: relative;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            padding: 1.5rem 1.2rem;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+            background-color: rgba(67, 97, 238, 0.1); /* Add a subtle background on hover */
+        }
+        
+        .nav-links a.active-nav {
+            color: var(--primary);
+        }
+        
+        .nav-links a.active-nav::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .auth-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .login-btn {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .login-btn:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .signup-btn {
+            background-color: var(--primary);
+            border: 2px solid var(--primary);
+            color: white;
+        }
+        
+        .signup-btn:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .user-dashboard {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background-color: #f1f5f9;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .user-dashboard:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .user-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            padding: 0.5rem 0;
+            display: none;
+            z-index: 100;
+        }
+        
+        .user-dashboard:hover .user-menu {
+            display: block;
+        }
+        
+        .user-menu-item {
+            padding: 0.8rem 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            display: block;
+            transition: all 0.2s ease;
+        }
+        
+        .user-menu-item:hover {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+        
+        .user-menu-item i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        /* Sections */
+        .section {
+            background-color: #f9f9f9; /* Light gray for sections */
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        #home {
+            display: block;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        /* Search and Filter */
+        .search-filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .search-bar {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 2.5rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        .search-bar i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        .filter-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: white;
+            min-width: 180px;
+            cursor: pointer;
+        }
+        
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        /* Job Listings */
+        .job-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .job-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid var(--light-gray);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .job-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent);
+        }
+        
+        .job-card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--light-gray);
+            position: relative;
+        }
+        
+        .job-type {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .job-card-company {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-right: 1rem;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .company-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .company-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .job-card-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+        
+        .job-card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .job-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .meta-item i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .job-description {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+        
+        .job-card-footer {
+            padding: 0 1.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .job-salary {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+        
+        .apply-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .apply-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .apply-btn i {
+            font-size: 0.9rem;
+        }
+        
+        /* Forms */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .form-submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Dashboard Cards */
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stats-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .stats-icon.primary {
+            background-color: var(--primary);
+        }
+        
+        .stats-icon.success {
+            background-color: var(--success);
+        }
+        
+        .stats-icon.warning {
+            background-color: var(--warning);
+        }
+        
+        .stats-icon.danger {
+            background-color: var(--danger);
+        }
+        
+        .stats-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            color: var(--dark);
+        }
+        
+        .stats-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Chart Section */
+        .chart-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        /* Recent Activity */
+        .activity-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .activity-list {
+            list-style: none;
+        }
+        
+        .activity-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+        
+        .activity-content h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark);
+        }
+        
+        .activity-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .activity-time {
+            color: var(--gray);
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .footer-links i {
+            font-size: 0.8rem;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .job-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-briefcase"></i>
+                <h1>LAWREI RANKS EDUCATION CENTER NAKAWUKA</h1>
+            </div>
+            <p class="tagline">Promoting technology with premier opportunities across Uganda</p>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h2>Find our courses here</h2>
+            <p>Discover all computer Science courses here at affordable fees and become a proffesion at Lawrei Ranks school of sciences</p>
+            <button class="cta-button" onclick="document.getElementById('searchInput').focus()">
+                <i class="fas fa-search"></i> Browse Courses
+            </button>
+        </div>
+    </div>
+
+    <div class="nav-container">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')" class="active-nav"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" onclick="showSection('jobs')"><i class="fas fa-briefcase"></i> Courses</a></li>
+                <li><a href="#" onclick="showSection('companies')"><i class="fas fa-building"></i> Sectors</a></li>
+                <li><a href="#" onclick="showSection('resources')"><i class="fas fa-book"></i> Resources</a></li>
+                <li><a href="#" onclick="showSection('about')"><i class="fas fa-info-circle"></i> About Us</a></li>
+            </ul>
+            
+            <div id="authSection">
+                <div class="auth-buttons">
+                    <a href="#" class="auth-btn login-btn" onclick="showSection('login')"><i class="fas fa-sign-in-alt"></i> Login</a>
+                    <a href="#" class="auth-btn signup-btn" onclick="showSection('signup')"><i class="fas fa-user-plus"></i> Sign Up</a>
+                </div>
+            </div>
+            
+            <div id="userSection" style="display: none;">
+                <div class="user-dashboard">
+                    <div class="user-avatar" id="userAvatar">JD</div>
+                    <span id="userName">John Doe</span>
+                    <div class="user-menu">
+                        <a href="#" class="user-menu-item" onclick="showSection('dashboard')"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                        <a href="#" class="user-menu-item" onclick="showSection('profile')"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="#" class="user-menu-item" onclick="showSection('applications')"><i class="fas fa-file-alt"></i> Applications</a>
+                        <a href="#" class="user-menu-item" onclick="showSection('settings')"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="user-menu-item" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <!-- Home Section -->
+        <section class="section" id="home">
+            <div class="search-filter-container">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search courses by title, application, or keyword..." oninput="filtercourses()">
+                </div>
+                <div class="filter-bar">
+                    <select class="filter-select" id="sectorFilter" onchange="filtercourses()">
+                        <option value="">All Sectors</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Networking">Networking</option>
+                        <option value="Production">Production</option>
+                        <option value="Designing">Designing</option>
+                        <option value="Engineering">Engineering</option>
+                        <option value="Modding">Modding</option>
+                    </select>
+                    <select class="filter-select" id="locationFilter" onchange="filtercourses()">
+                        <option value="">All Locations</option>
+                        <option value="Kampala">Kampala</option>
+                        <option value="Entebbe">Entebbe</option>
+                        <option value="Jinja">Jinja</option>
+                        <option value="Mbarara">Mbarara</option>
+                        <option value="Gulu">Gulu</option>
+                        <option value="Mbale">Mbale</option>
+                        <option value="Remote">Remote</option>
+                    </select>
+                    <select class="filter-select" id="experienceFilter" onchange="filtercourses()">
+                        <option value="">All Experience Levels</option>
+                        <option value="Entry Level">Entry Level</option>
+                        <option value="Mid Level">Mid Level</option>
+                        <option value="Senior Level">Senior Level</option>
+                        <option value="Executive">Executive</option>
+                    </select>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Featured Courses</h2>
+            <div class="job-list" id="jobList"></div>
+            
+            <div class="chart-section">
+                <h3>Featured courses Insights</h3>
+                <canvas id="jobChart"></canvas>
+            </div>
+            
+            <div class="stats-section">
+                <h3>Why Choose Lawrei Ranks Education Center?</h3>
+                <div class="dashboard-cards">
+                    <div class="stats-card">
+                        <div class="stats-icon primary">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="stats-content">
+                            <h3>2,500+</h3>
+                            <p>Active Courses</p>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon success">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="stats-content">
+                            <h3>750+</h3>
+                            <p>Partnership Schools</p>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon warning">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="stats-content">
+                            <h3>15,000+</h3>
+                            <p>Successful Students</p>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon danger">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="stats-content">
+                            <h3>85%</h3>
+                            <p>Candidate Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Jobs Section -->
+        <section class="section" id="jobs">
+            <h2 class="section-title">Browse All Couses</h2>
+            <div class="job-list" id="allJobsList"></div>
+        </section>
+        
+        <!-- Companies Section -->
+        <section class="section" id="companies">
+            <h2 class="section-title">Featured Sectors</h2>
+            <div class="company-list" id="companyList"></div>
+        </section>
+        
+        <!-- Resources Section -->
+        <section class="section" id="resources">
+            <h2 class="section-title">Resources</h2>
+            <div class="resources-container" id="resourcesContainer"></div>
+        </section>
+        
+        <!-- About Section -->
+        <section class="section" id="about">
+            <h2 class="section-title">About Lawrei Ranks education center</h2>
+            <div class="about-content">
+                <p>Founded in 2025, Lawrei Ranks education center has grown to become Uganda's premier recruitment and education provider. Our mission is to bridge the gap between talented professionals and organizations seeking exceptional skills.</p>
+                <p>With offices in Nakawuka, Entebbe RD, and Kampala RD, we register students across East Africa, specializing in Full courses, Short courses, and Holiday programmes.</p>
+                <div class="team-section">
+                    <h3>Our Web is open</h3>
+                    <div class="team-members"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Login Section -->
+        <section class="section" id="login">
+            <div class="form-container">
+                                <h2 class="section-title">Login to Your Account</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail" class="form-label">Email Address</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="form-submit-btn" onclick="login()">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </div>
+                    <div class="form-footer">
+                        <p>Don't have an account? <a href="#" onclick="showSection('signup')">Sign up here</a></p>
+                        <p><a href="#" onclick="showSection('forgotPassword')">Forgot your password?</a></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Signup Section -->
+        <section class="section" id="signup">
+            <div class="form-container">
+                <h2 class="section-title">Create Your Account</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName" class="form-label">Full Name</label>
+                        <input type="text" id="signupName" class="form-control" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail" class="form-label">Email Address</label>
+                        <input type="email" id="signupEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword" class="form-label">Password</label>
+                        <input type="password" id="signupPassword" class="form-control" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" class="form-control" placeholder="Confirm your password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userType" class="form-label">I am a:</label>
+                        <select id="userType" class="form-control" required>
+                            <option value="">Select account type</option>
+                            <option value="jobSeeker">Student</option>
+                            <option value="employer">Recturer</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="form-submit-btn" onclick="signup()">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+                    </div>
+                    <div class="form-footer">
+                        <p>Already have an account? <a href="#" onclick="showSection('login')">Login here</a></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Forgot Password Section -->
+        <section class="section" id="forgotPassword">
+            <div class="form-container">
+                <h2 class="section-title">Reset Your Password</h2>
+                <form id="forgotPasswordForm">
+                    <div class="form-group">
+                        <label for="resetEmail" class="form-label">Email Address</label>
+                        <input type="email" id="resetEmail" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="form-submit-btn" onclick="resetPassword()">
+                            <i class="fas fa-key"></i> Send Reset Link
+                        </button>
+                    </div>
+                    <div class="form-footer">
+                        <p>Remember your password? <a href="#" onclick="showSection('login')">Login here</a></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Dashboard Section -->
+        <section class="section" id="dashboard">
+            <h2 class="section-title">Dashboard Overview</h2>
+            
+            <div class="dashboard-cards">
+                <div class="stats-card">
+                    <div class="stats-icon primary">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>12</h3>
+                        <p>Applications Submitted</p>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-icon success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>3</h3>
+                        <p>Interview Invitations</p>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-icon warning">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>8</h3>
+                        <p>Saved courses</p>
+                    </div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-icon danger">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <div class="stats-content">
+                        <h3>5</h3>
+                        <p>New course Matches</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chart-section">
+                <h3>Application Status</h3>
+                <canvas id="applicationChart"></canvas>
+            </div>
+            
+            <div class="activity-section">
+                <h3>Recent Activity</h3>
+                <ul class="activity-list">
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Application Submitted</h4>
+                            <p>Software Engineer in Uganda</p>
+                            <div class="activity-time">2 hours ago</div>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>New Members Alert</h4>
+                            <p>matches your profile</p>
+                            <div class="activity-time">1 day ago</div>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Interview Scheduled</h4>
+                            <p>June 15, 2023 at 10:00 AM</p>
+                            <div class="activity-time">3 days ago</div>
+                        </div>
+                    </li>
+                    <li class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Profile Viewed</h4>
+                            <p>Your profile was viewed by PP</p>
+                            <div class="activity-time">1 week ago</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section class="section" id="profile">
+            <div class="form-container">
+                <h2 class="section-title">My Profile</h2>
+                
+                <div class="profile-header">
+                    <div class="profile-photo">
+                        <img src="images/qqqqqqqqqqqqqqqqqq.jpg" alt="Profile Photo" id="profileImage">
+                        <button class="upload-btn" onclick="document.getElementById('photoUpload').click()">
+                            <i class="fas fa-camera"></i> Change Photo
+                        </button>
+                        <input type="file" id="photoUpload" style="display: none;">
+                    </div>
+                    <div class="profile-info">
+                        <h3 id="profileName">John Doe</h3>
+                        <p id="profileTitle">Software Engineer</p>
+                        <p id="profileLocation"><i class="fas fa-map-marker-alt"></i> Kampala, Uganda</p>
+                    </div>
+                </div>
+                
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="profileFullName" class="form-label">Full Name</label>
+                        <input type="text" id="profileFullName" class="form-control" value="John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail" class="form-label">Email Address</label>
+                        <input type="email" id="profileEmail" class="form-control" value="john.doe@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhone" class="form-label">Phone Number</label>
+                        <input type="tel" id="profilePhone" class="form-control" value="+256 712 345 678" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileLocation" class="form-label">Location</label>
+                        <input type="text" id="profileLocation" class="form-control" value="Kampala, Uganda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileBio" class="form-label">Professional Summary</label>
+                        <textarea id="profileBio" class="form-control" rows="4">Experienced software engineer with 5+ years developing enterprise applications. Specialized in Java, Python, and cloud technologies. Passionate about creating scalable solutions for African businesses.</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileSkills" class="form-label">Skills</label>
+                        <input type="text" id="profileSkills" class="form-control" value="Java, Python, AWS, Docker, MySQL, Agile Methodologies">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileResume" class="form-label">Resume</label>
+                        <div class="file-upload">
+                            <input type="file" id="profileResume" class="form-control">
+                            <small>Current file: <a href="#">JohnDoe_Resume.pdf</a></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="form-submit-btn" onclick="updateProfile()">
+                            <i class="fas fa-save"></i> Save Profile
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Applications Section -->
+        <section class="section" id="applications">
+            <h2 class="section-title">My Applications</h2>
+            
+            <div class="applications-filter">
+                <select class="filter-select" id="applicationStatusFilter" onchange="filterApplications()">
+                    <option value="">All Applications</option>
+                    <option value="submitted">Submitted</option>
+                    <option value="reviewed">Under Review</option>
+                    <option value="interview">Interview Stage</option>
+                    <option value="rejected">Rejected</option>
+                    <option value="offered">Offer Received</option>
+                </select>
+            </div>
+            
+            <div class="applications-list" id="applicationsList"></div>
+        </section>
+
+        <!-- Settings Section -->
+        <section class="section" id="settings">
+            <div class="form-container">
+                <h2 class="section-title">Account Settings</h2>
+                
+                <div class="settings-tabs">
+                    <div class="settings-tab active" onclick="showSettingsTab('account')">Account</div>
+                    <div class="settings-tab" onclick="showSettingsTab('privacy')">Privacy</div>
+                    <div class="settings-tab" onclick="showSettingsTab('notifications')">Notifications</div>
+                </div>
+                
+                <div class="settings-content" id="accountSettings">
+                    <form id="accountSettingsForm">
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <p class="form-static-value">john.doe@example.com</p>
+                            <a href="#" class="change-link" onclick="showEmailChangeForm()">Change email</a>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <p class="form-static-value">••••••••</p>
+                            <a href="#" class="change-link" onclick="showPasswordChangeForm()">Change password</a>
+                        </div>
+                        <div class="form-group">
+                            <label for="accountLanguage" class="form-label">Language Preference</label>
+                            <select id="accountLanguage" class="form-control">
+                                <option value="en">English</option>
+                                <option value="sw">Swahili</option>
+                                <option value="lg">Luganda</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="form-submit-btn" onclick="saveAccountSettings()">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="settings-content" id="privacySettings" style="display: none;">
+                    <form id="privacySettingsForm">
+                        <div class="form-group">
+                            <label class="form-label">Profile Visibility</label>
+                            <div class="radio-group">
+                                <label>
+                                    <input type="radio" name="profileVisibility" value="public" checked> Public (Recommended for Students)
+                                </label>
+                                <label>
+                                    <input type="radio" name="profileVisibility" value="private"> Private (Only visible to Sector I apply to)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Search Engine Visibility</label>
+                            <div class="radio-group">
+                                <label>
+                                    <input type="radio" name="searchVisibility" value="visible" checked> Allow search engines to index my public profile
+                                </label>
+                                <label>
+                                    <input type="radio" name="searchVisibility" value="hidden"> Prevent search engines from indexing my profile
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Data Sharing</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="dataSharing" checked> Allow LawreiRanks to share my profile data with partner companies for better job matching
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="form-submit-btn" onclick="savePrivacySettings()">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="settings-content" id="notificationSettings" style="display: none;">
+                    <form id="notificationSettingsForm">
+                        <div class="form-group">
+                            <label class="form-label">Email Notifications</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="jobAlerts" checked> New course alerts matching my profile
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="applicationUpdates" checked> Application status updates
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="newsletter" checked> study tips and Lawrei ranks newsletter
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Push Notifications</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="pushJobAlerts" checked> New Course
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="pushMessages" checked> Messages from recturers
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="pushReminders" checked> Interview reminders
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="notificationFrequency" class="form-label">Notification Frequency</label>
+                            <select id="notificationFrequency" class="form-control">
+                                <option value="immediate">Immediately</option>
+                                <option value="daily" selected>Daily Digest</option>
+                                <option value="weekly">Weekly Digest</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="form-submit-btn" onclick="saveNotificationSettings()">
+                                <i class="fas fa-save"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Apply Section -->
+        <section class="section" id="apply">
+            <div class="form-container">
+                <h2 class="section-title" id="applyJobTitle">Apply for Position</h2>
+                
+                <div class="job-preview" id="applyJobPreview"></div>
+                
+                <form id="applicationForm">
+                    <div class="form-group">
+                        <label for="applicantName" class="form-label">Full Name</label>
+                        <input type="text" id="applicantName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantEmail" class="form-label">Email Address</label>
+                        <input type="email" id="applicantEmail" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantPhone" class="form-label">Phone Number</label>
+                        <input type="tel" id="applicantPhone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantResume" class="form-label">Upload Resume</label>
+                        <input type="file" id="applicantResume" class="form-control" accept=".pdf,.doc,.docx" required>
+                        <small>Accepted formats: PDF, DOC, DOCX (Max 5MB)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="applicantCoverLetter" class="form-label">Cover Letter</label>
+                        <textarea id="applicantCoverLetter" class="form-control" rows="6" placeholder="Tell the Director why you're the perfect Student to apply..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" id="agreeTerms" required> I confirm that the information provided is accurate and complete
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="form-submit-btn" onclick="submitApplication()">
+                            <i class="fas fa-paper-plane"></i> Submit Application
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>LAWREI RANKS EDUCATION CENTER</h3>
+                <p>Your Dream School for every kind of computer sciences at affordable tution</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Browse Courses</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Sectors</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Resources</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Applicants</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Create Account</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Course Search Tips</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Holiday programs</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Course Advice</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Tution Calculator</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Lawrei Ranks</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Post Experience</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Browse Candidates</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Recruitment Solutions</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Learners' Branding</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Fees Plans</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Near police station, Ntebbe Road, Nakawuka</a></li>
+                    <li><a href="#"><i class="fas fa-phone"></i> +256 708647190</a></li>
+                    <li><a href="#"><i class="fas fa-envelope"></i> info@Lawreiranks.ug</a></li>
+                    <li><a href="#"><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lawrei Ranks education center. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced job data with more details
+        const jobs = [
+            {
+                id: 1,
+                title: "Software Engineering",
+                company: "Lawrei Ranks Uganda",
+                sector: "Technology",
+                location: "Kampala, Uganda",
+                type: "5 Months",
+                experience: "2 months",
+                salary: "UGX 80,000 - 120,000",
+                posted: "2 days ago",
+                description: "Come and get experience in Software Engineering and join our growing team. You'll be learning to design and implement scalable software solutions for clients across East Africa. The ideal candidate has 5+ years of experience with Java, Python, and cloud technologies.",
+                requirements: "Register with 20,000",
+                image: "images/Software-Engineer.jpg",
+                logo: "images/Software-Engineer.jpg"
+            },
+            {
+                id: 2,
+                title: "Graphics Designing",
+                company: "Lawrei Ranks Uganda",
+                sector: "Desining",
+                location: "Entebbe, Uganda",
+                type: "5 Months",
+                experience: "Full Course",
+                salary: "UGX 50,000 - 70,000",
+                posted: "1 week ago",
+                description: "Come and get experience in Graphics Designing and join our growing team. You'll be learning to design graphics for clients across  Africa. ",
+                requirements: "Register with 20,000",
+                image: "images/graphi.jpg",
+                logo: "images/graphi.jpg"
+            },
+            {
+                id: 3,
+                title: "Software Modding",
+                company: "Lawrei Ranks Uganda",
+                sector: "Modding",
+                location: "Kampala, Uganda",
+                type: "5 Months",
+                experience: "Full Course",
+                salary: "UGX 60,000 - 90,000",
+                posted: "3 days ago",
+                description: "Come and get experience in Software modding and join our growing team. You'll be learning to mod software for clients across  Africa.",
+                requirements: "Register with 20,000",
+                image: "images/modding apk.jpg",
+                logo: "images/modding apk.jpg"
+            },
+            {
+                id: 4,
+                title: "Networking",
+                company: "Lawrei Ranks Uganda",
+                sector: "Networking",
+                location: "Kampala, Uganda",
+                type: "5 Months",
+                experience: "Entry Level",
+                salary: "UGX 45,000 - 60,000",
+                posted: "5 days ago",
+                description: "Come and get experience in Networking and join our growing team.",
+                requirements: "Register with 20,000",
+                image: "images/networking 4.jpg",
+                logo: "images/networking 4.jpg"
+            },
+            
+        ];
+
+        const companies = [
+            {
+                id: 1,
+                name: "Lawrei Ranks Uganda",
+                sector: "Software Engineering",
+                location: "Kampala",
+                description: "We are registering Students over Africa",
+                logo: "images/Software-Engineer.jpg",
+                jobs: 8
+            },
+            {
+                id: 2,
+                name: "Lawrei Ranks Uganda",
+                sector: "Designing",
+                location: "Entebbe",
+                description: "We are registering Students over Africa",
+                logo: "images/graphi.jpg",
+                jobs: 5
+            },
+            {
+                id: 3,
+                name: "Lawrei Ranks Uganda",
+                sector: "Modding",
+                location: "Kampala",
+                description: "We are registering Students over Africa",
+                logo: "images/modding apk.jpg",
+                jobs: 12
+            },
+            {
+                id: 4,
+                name: "Lawrei Ranks Uganda",
+                sector: "Networking",
+                location: "Kampala",
+                description: "We are registering Students over Africa",
+                logo: "images/networking 4.jpg",
+                jobs: 15
+            }
+        ];
+
+        const resources = [
+            {
+                id: 1,
+                title: "How to Write a Winning Resume",
+                type: "Article",
+                category: "Job Search",
+                description: "We are registering Students over Africa",
+                link: "#"
+            },
+            {
+                id: 2,
+                title: "Interview Preparation Guide",
+                type: "Guide",
+                category: "Interviewing",
+                description: "We are registering Students over Africa",
+                link: "#"
+            },
+            {
+                id: 3,
+                title: "Show cases of work",
+                type: "Video",
+                category: "Career Growth",
+                description: "We are registering Students over Africa",
+                link: "#"
+            },
+            {
+                id: 4,
+                title: "Planner",
+                type: "Tool",
+                category: "Career Growth",
+                description: "We are registering Students over Africa",
+                link: "#"
+            }
+        ];
+
+        let currentUser  = null;
+        let savedJobs = [1, 3];
+        let applications = [
+            {
+                jobId: 2,
+                status: "submitted",
+                date: "2023-05-15",
+                company: "Lawrei Ranks Uganda",
+                title: "Experts"
+            },
+            {
+                jobId: 4,
+                status: "interview",
+                date: "2023-05-10",
+                company: "Lawrei Ranks Uganda",
+                title: "Programmers"
+            },
+            {
+                jobId: 6,
+                status: "rejected",
+                date: "2023-04-28",
+                company: "Lawrei Ranks Uganda",
+                title: "Beginers"
+            }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderJobs();
+            renderAllJobs();
+            renderCompanies();
+            renderResources();
+            renderApplications();
+            renderChart();
+            updateAuthUI();
+        });
+
+        // Render job listings on home page
+        function renderJobs(filteredJobs = jobs.slice(0, 4)) {
+            const jobList = document.getElementById("jobList");
+            jobList.innerHTML = "";
+            
+            filteredJobs.forEach(job => {
+                const isSaved = savedJobs.includes(job.id);
+                const jobCard = document.createElement('div');
+                jobCard.className = 'job-card';
+                jobCard.innerHTML = `
+                    <div class="job-card-header">
+                        <span class="job-type">${job.type}</span>
+                        <div class="job-card-company">
+                            <img src="${job.logo}" alt="${job.company}" class="company-logo">
+                            <div class="company-info">
+                                <h3>${job.company}</h3>
+                                <p>${job.location} • ${job.posted}</p>
+                            </div>
+                        </div>
+                        <h3 class="job-card-title">${job.title}</h3>
+                    </div>
+                    <div class="job-card-body">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-briefcase"></i> ${job.experience}
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-money-bill-wave"></i> ${job.salary}
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-chart-pie"></i> ${job.sector}
+                            </div>
+                        </div>
+                        <p class="job-description">${job.description.substring(0, 150)}...</p>
+                    </div>
+                                        <div class="job-card-footer">
+                        <div class="job-salary">${job.salary}</div>
+                        <div>
+                            <button class="apply-btn" onclick="showJobDetails(${job.id})">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                            <button class="apply-btn ${isSaved ? 'saved' : ''}" onclick="toggleSaveJob(${job.id})" style="margin-left: 0.5rem;">
+                                <i class="fas ${isSaved ? 'fa-bookmark' : 'fa-bookmark'}"></i> ${isSaved ? 'Saved' : 'Save'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                jobList.appendChild(jobCard);
+            });
+        }
+
+        // Render all jobs in jobs section
+        function renderAllJobs(filteredJobs = jobs) {
+            const jobList = document.getElementById("allJobsList");
+            jobList.innerHTML = "";
+            
+            filteredJobs.forEach(job => {
+                const isSaved = savedJobs.includes(job.id);
+                const jobCard = document.createElement('div');
+                jobCard.className = 'job-card';
+                jobCard.innerHTML = `
+                    <div class="job-card-header">
+                        <span class="job-type">${job.type}</span>
+                        <div class="job-card-company">
+                            <img src="${job.logo}" alt="${job.company}" class="company-logo">
+                            <div class="company-info">
+                                <h3>${job.company}</h3>
+                                <p>${job.location} • ${job.posted}</p>
+                            </div>
+                        </div>
+                        <h3 class="job-card-title">${job.title}</h3>
+                    </div>
+                    <div class="job-card-body">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-briefcase"></i> ${job.experience}
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-money-bill-wave"></i> ${job.salary}
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-chart-pie"></i> ${job.sector}
+                            </div>
+                        </div>
+                        <p class="job-description">${job.description.substring(0, 150)}...</p>
+                    </div>
+                    <div class="job-card-footer">
+                        <div class="job-salary">${job.salary}</div>
+                        <div>
+                            <button class="apply-btn" onclick="showJobDetails(${job.id})">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                            <button class="apply-btn ${isSaved ? 'saved' : ''}" onclick="toggleSaveJob(${job.id})" style="margin-left: 0.5rem;">
+                                <i class="fas ${isSaved ? 'fa-bookmark' : 'fa-bookmark'}"></i> ${isSaved ? 'Saved' : 'Save'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+                jobList.appendChild(jobCard);
+            });
+        }
+
+        // Render companies
+        function renderCompanies() {
+            const companyList = document.getElementById("companyList");
+            companyList.innerHTML = "";
+            
+            companies.forEach(company => {
+                const companyCard = document.createElement('div');
+                companyCard.className = 'job-card';
+                companyCard.innerHTML = `
+                    <div class="job-card-header">
+                        <div class="job-card-company">
+                            <img src="${company.logo}" alt="${company.name}" class="company-logo">
+                            <div class="company-info">
+                                <h3>${company.name}</h3>
+                                <p>${company.location} • ${company.jobs} open positions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-card-body">
+                        <p class="job-description">${company.description}</p>
+                    </div>
+                    <div class="job-card-footer">
+                        <div class="job-salary">${company.sector}</div>
+                        <button class="apply-btn" onclick="viewCompanyJobs(${company.id})">
+                            <i class="fas fa-briefcase"></i> View Courses
+                        </button>
+                    </div>
+                `;
+                companyList.appendChild(companyCard);
+            });
+        }
+
+        // Render resources
+        function renderResources() {
+            const resourcesContainer = document.getElementById("resourcesContainer");
+            resourcesContainer.innerHTML = "";
+            
+            resources.forEach(resource => {
+                const resourceCard = document.createElement('div');
+                resourceCard.className = 'job-card';
+                resourceCard.innerHTML = `
+                    <div class="job-card-header">
+                        <h3 class="job-card-title">${resource.title}</h3>
+                        <p><span class="job-type">${resource.type}</span> • ${resource.category}</p>
+                    </div>
+                    <div class="job-card-body">
+                        <p class="job-description">${resource.description}</p>
+                    </div>
+                    <div class="job-card-footer">
+                        <a href="${resource.link}" class="apply-btn">
+                            <i class="fas fa-external-link-alt"></i> View Resource
+                        </a>
+                    </div>
+                `;
+                resourcesContainer.appendChild(resourceCard);
+            });
+        }
+
+        // Render applications
+        function renderApplications(filteredApplications = applications) {
+            const applicationsList = document.getElementById("applicationsList");
+            applicationsList.innerHTML = "";
+            
+            if (filteredApplications.length === 0) {
+                applicationsList.innerHTML = '<p>No applications found. Apply to jobs to see them here.</p>';
+                return;
+            }
+            
+            filteredApplications.forEach(app => {
+                const statusClass = getStatusClass(app.status);
+                const applicationCard = document.createElement('div');
+                applicationCard.className = 'job-card';
+                applicationCard.innerHTML = `
+                    <div class="job-card-header">
+                        <h3 class="job-card-title">${app.title}</h3>
+                        <p>${app.company}</p>
+                    </div>
+                    <div class="job-card-body">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-calendar-alt"></i> Applied: ${app.date}
+                            </div>
+                            <div class="meta-item ${statusClass}">
+                                <i class="fas fa-circle"></i> ${formatStatus(app.status)}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-card-footer">
+                        <button class="apply-btn" onclick="viewApplicationDetails('${app.jobId}')">
+                            <i class="fas fa-info-circle"></i> Details
+                        </button>
+                    </div>
+                `;
+                applicationsList.appendChild(applicationCard);
+            });
+        }
+
+        function getStatusClass(status) {
+            switch(status) {
+                case 'submitted': return 'status-submitted';
+                case 'reviewed': return 'status-reviewed';
+                case 'interview': return 'status-interview';
+                case 'offered': return 'status-offered';
+                case 'rejected': return 'status-rejected';
+                default: return '';
+            }
+        }
+
+        function formatStatus(status) {
+            const statusMap = {
+                'submitted': 'Submitted',
+                'reviewed': 'Under Review',
+                'interview': 'Interview Stage',
+                'offered': 'Offer Received',
+                'rejected': 'Not Selected'
+            };
+            return statusMap[status] || status;
+        }
+
+        // Show job details for application
+        function showJobDetails(jobId) {
+            const job = jobs.find(j => j.id === jobId);
+            if (!job) return;
+            
+            document.getElementById('applyJobTitle').textContent = `Apply for ${job.title}`;
+            
+            const preview = document.getElementById('applyJobPreview');
+            preview.innerHTML = `
+                <div class="job-card">
+                    <div class="job-card-header">
+                        <span class="job-type">${job.type}</span>
+                        <div class="job-card-company">
+                            <img src="${job.logo}" alt="${job.company}" class="company-logo">
+                            <div class="company-info">
+                                <h3>${job.company}</h3>
+                                <p>${job.location}</p>
+                            </div>
+                        </div>
+                        <h3 class="job-card-title">${job.title}</h3>
+                    </div>
+                    <div class="job-card-body">
+                        <div class="job-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-briefcase"></i> ${job.experience}
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-money-bill-wave"></i> ${job.salary}
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-chart-pie"></i> ${job.sector}
+                            </div>
+                        </div>
+                        <h4>Course Description</h4>
+                        <p class="job-description">${job.description}</p>
+                        <h4>Requirements</h4>
+                        <p>${job.requirements}</p>
+                    </div>
+                </div>
+            `;
+            
+            // Pre-fill form if user is logged in
+            if (currentUser) {
+                document.getElementById('applicantName').value = currentUser.name;
+                document.getElementById('applicantEmail').value = currentUser.email;
+                document.getElementById('applicantPhone').value = currentUser.phone || '';
+            }
+            
+            showSection('apply');
+        }
+
+        // Toggle save job
+        function toggleSaveJob(jobId) {
+            if (!currentUser) {
+                showSection('login');
+                Swal.fire({
+                    title: 'Login Required',
+                    text: 'Please login to save jobs',
+                    icon: 'info',
+                    confirmButtonColor: '#4361ee'
+                });
+                return;
+            }
+            
+            const index = savedJobs.indexOf(jobId);
+            if (index === -1) {
+                savedJobs.push(jobId);
+                Swal.fire({
+                    title: 'Job Saved',
+                    text: 'This job has been added to your saved jobs',
+                    icon: 'success',
+                    confirmButtonColor: '#4361ee'
+                });
+            } else {
+                savedJobs.splice(index, 1);
+                Swal.fire({
+                    title: 'Job Removed',
+                    text: 'This job has been removed from your saved jobs',
+                    icon: 'info',
+                    confirmButtonColor: '#4361ee'
+                });
+            }
+            
+            renderJobs();
+            renderAllJobs();
+        }
+
+        // Submit application
+        function submitApplication() {
+            if (!currentUser) {
+                showSection('login');
+                Swal.fire({
+                    title: 'Login Required',
+                    text: 'Please login to apply for jobs',
+                    icon: 'info',
+                    confirmButtonColor: '#4361ee'
+                });
+                return;
+            }
+            
+            const name = document.getElementById('applicantName').value;
+            const email = document.getElementById('applicantEmail').value;
+            const phone = document.getElementById('applicantPhone').value;
+            const resume = document.getElementById('applicantResume').files[0];
+            const coverLetter = document.getElementById('applicantCoverLetter').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            if (!name || !email || !phone || !resume || !coverLetter || !agreeTerms) {
+                Swal.fire({
+                    title: 'Incomplete Form',
+                    text: 'Please fill all required fields and agree to terms',
+                    icon: 'error',
+                    confirmButtonColor: '#4361ee'
+                });
+                return;
+            }
+            
+            // In a real app, you would upload the resume to your server here
+            const jobTitle = document.getElementById('applyJobTitle').textContent.replace('Apply for ', '');
+            
+            // Add to applications
+            applications.unshift({
+                jobId: jobs.find(j => j.title === jobTitle)?.id || 0,
+                status: 'submitted',
+                date: new Date().toISOString().split('T')[0],
+                company: jobs.find(j => j.title === jobTitle)?.company || '',
+                title: jobTitle
+            });
+            
+            Swal.fire({
+                title: 'Application Submitted!',
+                text: `Your application for ${jobTitle} has been submitted successfully.`,
+                icon: 'success',
+                confirmButtonColor: '#4361ee'
+            });
+            
+            renderApplications();
+            showSection('home');
+        }
+
+        // User login
+        function login() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!email || !password) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Please enter both email and password',
+                    icon: 'error',
+                    confirmButtonColor: '#4361ee'
+                });
+                return;
+            }
+            
+            // In a real app, you would verify credentials with your backend
+            currentUser = {
+                id: 1,
+                name: 'John Doe',
+                email: email,
+                phone: '+256712345678',
+                type: 'jobSeeker',
+                avatar: 'JD'
+            };
+            
+            Swal.fire({
+                title: 'Login Successful!',
+                text: `Welcome back, ${currentUser.name}!`,
+                icon: 'success',
+                confirmButtonColor: '#4361ee'
+            });
+            
+            updateAuthUI();
+            showSection('home');
+        }
+
+        // User signup
+        function signup() {
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('signupConfirmPassword').value;
+            const userType = document.getElementById('userType').value;
+            
+            if (!name || !email || !password || !confirmPassword || !userType) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Please fill all required fields',
+                    icon: 'error',
+                    confirmButtonColor: '#4361ee'
+                });
+                return;
+            }
+            
+            if (password !== confirmPassword) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Passwords do not match',
+                    icon: 'error',
+                    confirmButtonColor: '#4361ee'
+                });
+                return;
+            }
+            
+            // In a real app, you would register the user with your backend
+            currentUser = {
+                id: 2,
+                name: name,
+                email: email,
+                type: userType,
+                avatar: name.split(' ').map(n => n[0]).join('').toUpperCase()
+            };
+            
+            Swal.fire({
+                title: 'Registration Successful!',
+                text: `Welcome to NichoJob, ${currentUser.name}!`,
+                icon: 'success',
+                confirmButtonColor: '#4361ee'
+            });
+            
+            updateAuthUI();
+            showSection('home');
+        }
+
+        // Reset password
+        function resetPassword() {
+            const email = document.getElementById('resetEmail').value;
+            
+            if (!email) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Please enter your email address',
+                    icon: 'error',
+                    confirmButtonColor: '#4361ee'
+                });
+                return;
+            }
+            
+            Swal.fire({
+                title: 'Reset Link Sent',
+                text: `If ${email} is registered with us, you'll receive a password reset link.`,
+                icon: 'success',
+                confirmButtonColor: '#4361ee'
+            });
+            
+            showSection('login');
+        }
+
+        // User logout
+        function logout() {
+            currentUser = null;
+            Swal.fire({
+                title: 'Logged Out',
+                text: 'You have been successfully logged out',
+                icon: 'success',
+                confirmButtonColor: '#4361ee'
+            });
+            updateAuthUI();
+            showSection('home');
+        }
+
+        // Update auth UI based on login state
+        function updateAuthUI() {
+            const authSection = document.getElementById('authSection');
+            const userSection = document.getElementById('userSection');
+            const userAvatar = document.getElementById('userAvatar');
+            const userName = document.getElementById('userName');
+            
+            if (currentUser) {
+                authSection.style.display = 'none';
+                userSection.style.display = 'block';
+                userAvatar.textContent = currentUser.avatar;
+                userName.textContent = currentUser.name;
+            } else {
+                authSection.style.display = 'block';
+                userSection.style.display = 'none';
+            }
+        }
+
+        // Filter jobs
+        function filterJobs() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const sectorFilter = document.getElementById('sectorFilter').value;
+            const locationFilter = document.getElementById('locationFilter').value;
+            const experienceFilter = document.getElementById('experienceFilter').value;
+            
+            const filteredJobs = jobs.filter(job => {
+                const matchesSearch = job.title.toLowerCase().includes(searchTerm) || 
+                                    job.company.toLowerCase().includes(searchTerm) ||
+                                    job.description.toLowerCase().includes(searchTerm);
+                const matchesSector = sectorFilter ? job.sector === sectorFilter : true;
+                const matchesLocation = locationFilter ? job.location.includes(locationFilter) : true;
+                const matchesExperience = experienceFilter ? job.experience === experienceFilter : true;
+                
+                return matchesSearch && matchesSector && matchesLocation && matchesExperience;
+            });
+            
+            if (document.getElementById('home').style.display !== 'none') {
+                renderJobs(filteredJobs.slice(0, 4));
+            } else {
+                renderAllJobs(filteredJobs);
+            }
+        }
+
+        // Filter applications
+        function filterApplications() {
+            const statusFilter = document.getElementById('applicationStatusFilter').value;
+            
+            if (!statusFilter) {
+                renderApplications();
+                return;
+            }
+            
+            const filteredApplications = applications.filter(app => app.status === statusFilter);
+            renderApplications(filteredApplications);
+        }
+
+        // Show section
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Update active nav
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active-nav');
+            });
+            
+            // Special case for auth sections
+            if (!['login', 'signup', 'forgotPassword', 'dashboard', 'profile', 'applications', 'settings'].includes(sectionId)) {
+                document.querySelector(`.nav-links a[onclick="showSection('${sectionId}')"]`).classList.add('active-nav');
+            }
+        }
+
+        // Show settings tab
+        function showSettingsTab(tabId) {
+            document.querySelectorAll('.settings-content').forEach(tab => {
+                tab.style.display = 'none';
+            });
+            
+            document.querySelectorAll('.settings-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabId + 'Settings').style.display = 'block';
+            document.querySelector(`.settings-tab[onclick="showSettingsTab('${tabId}')"]`).classList.add('active');
+        }
+
+        // View company jobs
+        function viewCompanyJobs(companyId) {
+            const company = companies.find(c => c.id === companyId);
+            if (!company) return;
+            
+            const filteredJobs = jobs.filter(job => job.company === company.name);
+            renderAllJobs(filteredJobs);
+            
+            document.getElementById('searchInput').value = company.name;
+            document.getElementById('sectorFilter').value = '';
+            document.getElementById('locationFilter').value = company.location.includes('Kampala') ? 'Kampala' : 
+                                                             company.location.includes('Entebbe') ? 'Entebbe' : '';
+            
+            showSection('jobs');
+        }
+
+        // View application details
+        function viewApplicationDetails(jobId) {
+            const job = jobs.find(j => j.id === parseInt(jobId));
+            const application = applications.find(app => app.jobId === parseInt(jobId));
+            
+            if (!job || !application) return;
+            
+            Swal.fire({
+                title: application.title,
+                html: `
+                    <div style="text-align: left;">
+                        <p><strong>Company:</strong> ${application.company}</p>
+                        <p><strong>Applied Date:</strong> ${application.date}</p>
+                        <p><strong>Status:</strong> <span class="${getStatusClass(application.status)}">${formatStatus(application.status)}</span></p>
+                        <hr>
+                        <p>${job.description}</p>
+                    </div>
+                `,
+                confirmButtonColor: '#4361ee'
+            });
+        }
+
+        // Update profile
+        function updateProfile() {
+            const name = document.getElementById('profileFullName').value;
+            const email = document.getElementById('profileEmail').value;
+            const phone = document.getElementById('profilePhone').value;
+            const location = document.getElementById('profileLocation').value;
+            const bio = document.getElementById('profileBio').value;
+            const skills = document.getElementById('profileSkills').value;
+            
+            if (!name || !email) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Name and email are required',
+                    icon: 'error',
+                    confirmButtonColor: '#4361ee'
+                });
+                return;
+            }
+            
+            currentUser = {
+                ...currentUser,
+                name: name,
+                email: email,
+                phone: phone,
+                location: location,
+                bio: bio,
+                skills: skills
+            };
+            
+            Swal.fire({
+                title: 'Profile Updated!',
+                text: 'Your profile has been updated successfully',
+                icon: 'success',
+                confirmButtonColor: '#4361ee'
+            });
+        }
+
+        // Render chart
+        function renderChart() {
+            const ctx = document.getElementById('jobChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Technology', 'Marketing', 'Finance', 'Healthcare', 'Engineering', 'Design'],
+                    datasets: [{
+                        label: 'Jobs by Sector',
+                        data: [
+                            jobs.filter(j => j.sector === 'Technology').length,
+                            jobs.filter(j => j.sector === 'Marketing').length,
+                            jobs.filter(j => j.sector === 'Finance').length,
+                            jobs.filter(j => j.sector === 'Healthcare').length,
+                            jobs.filter(j => j.sector === 'Engineering').length,
+                            jobs.filter(j => j.sector === 'Design').length
+                        ],
+                        backgroundColor: [
+                            'rgba(67, 97, 238, 0.7)',
+                            'rgba(244, 63, 94, 0.7)',
+                            'rgba(16, 185, 129, 0.7)',
+                            'rgba(245, 158, 11, 0.7)',
+                            'rgba(139, 92, 246, 0.7)',
+                            'rgba(20, 184, 166, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(67, 97, 238, 1)',
+                            'rgba(244, 63, 94, 1)',
+                            'rgba(16, 185, 129, 1)',
+                            'rgba(245, 158, 11, 1)',
+                            'rgba(139, 92, 246, 1)',
+                            'rgba(20, 184, 166, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Application status chart for dashboard
+            const appCtx = document.getElementById('applicationChart')?.getContext('2d');
+            if (appCtx) {
+                new Chart(appCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Submitted', 'Under Review', 'Interview', 'Offer Received', 'Rejected'],
+                        datasets: [{
+                            data: [
+                                applications.filter(a => a.status === 'submitted').length,
+                                applications.filter(a => a.status === 'reviewed').length,
+                                applications.filter(a => a.status === 'interview').length,
+                                applications.filter(a => a.status === 'offered').length,
+                                applications.filter(a => a.status === 'rejected').length
+                            ],
+                            backgroundColor: [
+                                'rgba(67, 97, 238, 0.7)',
+                                'rgba(139, 92, 246, 0.7)',
+                                'rgba(245, 158, 11, 0.7)',
+                                'rgba(16, 185, 129, 0.7)',
+                                'rgba(244, 63, 94, 0.7)'
+                            ],
+                            borderColor: [
+                                'rgba(67, 97, 238, 1)',
+                                'rgba(139, 92, 246, 1)',
+                                'rgba(245, 158, 11, 1)',
+                                'rgba(16, 185, 129, 1)',
+                                'rgba(244, 63, 94, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Save account settings
+        function saveAccountSettings() {
+            const language = document.getElementById('accountLanguage').value;
+            
+            Swal.fire({
+                title: 'Settings Saved!',
+                text: 'Your account settings have been updated',
+                icon: 'success',
+                confirmButtonColor: '#4361ee'
+            });
+        }
+
+        // Save privacy settings
+        function savePrivacySettings() {
+            const profileVisibility = document.querySelector('input[name="profileVisibility"]:checked').value;
+            const searchVisibility = document.querySelector('input[name="searchVisibility"]:checked').value;
+            const dataSharing = document.querySelector('input[name="dataSharing"]').checked;
+            
+            Swal.fire({
+                title: 'Privacy Settings Saved!',
+                text: 'Your privacy preferences have been updated',
+                icon: 'success',
+                confirmButtonColor: '#4361ee'
+            });
+        }
+
+        // Save notification settings
+        function saveNotificationSettings() {
+            const jobAlerts = document.querySelector('input[name="jobAlerts"]').checked;
+            const applicationUpdates = document.querySelector('input[name="applicationUpdates"]').checked;
+            const newsletter = document.querySelector('input[name="newsletter"]').checked;
+            const pushJobAlerts = document.querySelector('input[name="pushJobAlerts"]').checked;
+            const pushMessages = document.querySelector('input[name="pushMessages"]').checked;
+            const pushReminders = document.querySelector('input[name="pushReminders"]').checked;
+            const frequency = document.getElementById('notificationFrequency').value;
+            
+            Swal.fire({
+                title: 'Notification Settings Saved!',
+                text: 'Your notification preferences have been updated',
+                icon: 'success',
+                confirmButtonColor: '#4361ee'
+            });
+        }
+    </script>
+</body>
+</html>
